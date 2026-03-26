@@ -5,212 +5,343 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Previous Exam - NTPU EE</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 登入畫面專用樣式 */
+    #login-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: #f4f7f6;
+      font-family: sans-serif;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+    #login-btn {
+      background: #4285F4;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+    #login-btn:hover { background: #357ae8; }
+    #error-msg {
+      color: #e74c3c;
+      margin-top: 15px;
+      font-size: 14px;
+      display: none;
+      line-height: 1.5;
+    }
+    /* 登出橫幅樣式 */
+    .auth-bar {
+      background: #333;
+      color: white;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 13px;
+    }
+    #logout-btn {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 3px 10px;
+      margin-left: 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #logout-btn:hover { background: white; color: black; }
+  </style>
 </head>
 <body>
 
-  <!-- 頁首 -->
-  <header class="top-banner">
-    <h1>國立臺北大學電機系｜考古題與原文書下載區</h1>
-  </header>
+  <div id="login-screen">
+    <div class="login-box">
+      <h1 style="color: #2c3e50; margin-bottom: 10px;">NTPU EE 考古題系統</h1>
+      <p style="color: #7f8c8d;">這是一個封閉式資源庫<br>請使用北大 gm 信箱登入</p>
+      <button id="login-btn">使用 Google 帳號登入</button>
+      <p id="error-msg"></p>
+    </div>
+  </div>
 
-  <!-- 主體內容 -->
-  <main class="content">
-
-    <!-- 考古題 -->
-    <h2>考古題下載區</h2>
-
-    <div class="paper">
-      <h3>程式設計實驗</h3>
-      <ul class="year-list">
-        <li class="row">
-          <span>111 年期中考題</span>
-          <a class="download-btn" href="files/111-程式設計實習期中考題.pdf" download>下載 PDF</a>
-        </li>
-      </ul>
+  <div id="app-container" style="display: none;">
+    <div class="auth-bar">
+      <span id="user-info"></span>
+      <button id="logout-btn">登出</button>
     </div>
 
-    <div class="paper">
-      <h3>普通物理1</h3>
-      <ul class="year-list">
-        <li class="row"><span>110 年期中考題</span><a class="download-btn" href="files/110-普物期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-普物期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-普物期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
+    <header class="top-banner">
+      <h1>國立臺北大學電機系｜考古題與原文書下載區</h1>
+    </header>
 
-    <div class="paper">
-      <h3>普通物理2</h3>
-      <ul class="year-list">
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-普物2期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
+    <main class="content">
 
-    <div class="paper">
-      <h3>資料結構</h3>
-      <ul class="year-list">
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-資料結構期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期末考題</span><a class="download-btn" href="files/112-資料結構期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-資料結構期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-資料結構期末.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
+      <h2>考古題下載區</h2>
 
-    <div class="paper">
-      <h3>組合語言</h3>
-      <ul class="year-list">
-        <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-組合語言.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>電路學1</h3>
-      <ul class="year-list">
-        <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-電路學1期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>111 年期末考題</span><a class="download-btn" href="files/111-電路學1期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-電路學1期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期末考題</span><a class="download-btn" href="files/112-電路學1期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-電路學1期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-電路學1期末.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>電路學2</h3>
-      <ul class="year-list">
-        <li class="row"><span>111 年期末考題</span><a class="download-btn" href="files/111-電路學2期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-電路學2期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期末考題</span><a class="download-btn" href="files/112-電路學2期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-電路學2期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-電路學2期末.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>工程數學1</h3>
-      <ul class="year-list">
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-工數1期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-工數1期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>工程數學2</h3>
-      <ul class="year-list">
-        <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-工數2期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-工數2期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-工數2期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>訊號與系統</h3>
-      <ul class="year-list">
-        <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-訊號與系統期末.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>機率</h3>
-      <ul class="year-list">
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-機率期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>電磁學</h3>
-      <ul class="year-list">
-        <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-電磁學期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-電磁學期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-電磁學期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>114 年期中考題</span><a class="download-btn" href="files/114-電磁學期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>機器視覺檢測</h3>
-      <ul class="year-list">
-        <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-機器視覺檢測期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <div class="paper">
-      <h3>作業系統</h3>
-      <ul class="year-list">
-        <li class="row"><span>110 年期中考題</span><a class="download-btn" href="files/110-作業系統期中.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>110 年期末考題</span><a class="download-btn" href="files/110-作業系統期末.pdf" download>下載 PDF</a></li>
-        <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-作業系統期中.pdf" download>下載 PDF</a></li>
-      </ul>
-    </div>
-
-    <!-- 原文書 -->
-    <h2>原文書下載區</h2>
-    <div class="book-list">
-      <div class="book-card">
-        <span>計算機概論</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/171FfIsXw_3LRdziJx4enjv3EMObQPB4b/view?usp=drive_link" target="_blank">下載原文書</a>
+      <div class="paper">
+        <h3>程式設計實驗</h3>
+        <ul class="year-list">
+          <li class="row">
+            <span>111 年期中考題</span>
+            <a class="download-btn" href="files/111-程式設計實習期中考題.pdf" download>下載 PDF</a>
+          </li>
+        </ul>
       </div>
-      <div class="book-card">
-        <span>微積分</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1xXoPn_bi_M3qhmaALHzuiMagayAPRqZt/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>微積分解答</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1LxL5a0VPVWMRiRlHV1INfFwa7kBRKM9d/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>數位系統設計</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1cf6aWWhZelMvcG4wEUBso04BBGruQBGL/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>電子學</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1_xZH0YsehXJ6Utv5dSY41a6fewXoX56_/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>電子學解答</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1Ynev0Do43D9qxbiScu-XqYwDwzaEjwUf/view?usp=sharing" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>電路學</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1Sch9jDroDQDdp3QAPpyYmDq_pdCOc1_Y/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>電路學解答</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/148PvZiFtGBZvXsj7-yEE1LOht6tpkxfu/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>組合語言</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/11sWeYKGPpLQ3x68OiwRKfUJ7vUpC7wNk/view?usp=drive_link" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>電磁學</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1-Pq5W3HfyLRV0KS8MvhM9pv8zq0gBSqF/view?usp=drivesdk" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>電磁學解答</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1uGLi0x9d7dWTILdUxNX43VCmax-mzgjk/view?usp=drivesdk" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>作業系統</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1p9rzJuyZn4UCuSC7UseF_EMQKh0N6x_A/view?usp=drivesdk" target="_blank">下載原文書</a>
-      </div>
-      <div class="book-card">
-        <span>控制系統</span>
-        <a class="download-btn" href="https://drive.google.com/file/d/1OwWjFtkKKLYpSL9P6pGsq0JCIF_8Q6nx/view?usp=drivesdk" target="_blank">下載原文書</a>
-      </div>
-    </div>
 
-  </main>
+      <div class="paper">
+        <h3>普通物理1</h3>
+        <ul class="year-list">
+          <li class="row"><span>110 年期中考題</span><a class="download-btn" href="files/110-普物期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-普物期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-普物期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
 
-  <!-- 頁尾 -->
-  <footer class="bottom-banner">
-    <p>© 2025 國立臺北大學電機系</p>
-    <p>如有問題或欲提供考古題，請來信 <a href="mailto:ntpuee0@gmail.com">ntpuee0@gmail.com</a></p>
-  </footer>
+      <div class="paper">
+        <h3>普通物理2</h3>
+        <ul class="year-list">
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-普物2期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
 
+      <div class="paper">
+        <h3>資料結構</h3>
+        <ul class="year-list">
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-資料結構期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期末考題</span><a class="download-btn" href="files/112-資料結構期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-資料結構期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-資料結構期末.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>組合語言</h3>
+        <ul class="year-list">
+          <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-組合語言.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>電路學1</h3>
+        <ul class="year-list">
+          <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-電路學1期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>111 年期末考題</span><a class="download-btn" href="files/111-電路學1期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-電路學1期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期末考題</span><a class="download-btn" href="files/112-電路學1期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-電路學1期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-電路學1期末.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>電路學2</h3>
+        <ul class="year-list">
+          <li class="row"><span>111 年期末考題</span><a class="download-btn" href="files/111-電路學2期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-電路學2期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期末考題</span><a class="download-btn" href="files/112-電路學2期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-電路學2期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-電路學2期末.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>工程數學1</h3>
+        <ul class="year-list">
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-工數1期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-工數1期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>工程數學2</h3>
+        <ul class="year-list">
+          <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-工數2期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-工數2期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-工數2期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>訊號與系統</h3>
+        <ul class="year-list">
+          <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-訊號與系統期末.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>機率</h3>
+        <ul class="year-list">
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-機率期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>電磁學</h3>
+        <ul class="year-list">
+          <li class="row"><span>112 年期中考題</span><a class="download-btn" href="files/112-電磁學期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-電磁學期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>113 年期末考題</span><a class="download-btn" href="files/113-電磁學期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>114 年期中考題</span><a class="download-btn" href="files/114-電磁學期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>機器視覺檢測</h3>
+        <ul class="year-list">
+          <li class="row"><span>113 年期中考題</span><a class="download-btn" href="files/113-機器視覺檢測期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="paper">
+        <h3>作業系統</h3>
+        <ul class="year-list">
+          <li class="row"><span>110 年期中考題</span><a class="download-btn" href="files/110-作業系統期中.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>110 年期末考題</span><a class="download-btn" href="files/110-作業系統期末.pdf" download>下載 PDF</a></li>
+          <li class="row"><span>111 年期中考題</span><a class="download-btn" href="files/111-作業系統期中.pdf" download>下載 PDF</a></li>
+        </ul>
+      </div>
+
+      <h2>原文書下載區</h2>
+      <div class="book-list">
+        <div class="book-card">
+          <span>計算機概論</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/171FfIsXw_3LRdziJx4enjv3EMObQPB4b/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>微積分</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1xXoPn_bi_M3qhmaALHzuiMagayAPRqZt/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>微積分解答</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1LxL5a0VPVWMRiRlHV1INfFwa7kBRKM9d/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>數位系統設計</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1cf6aWWhZelMvcG4wEUBso04BBGruQBGL/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>電子學</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1_xZH0YsehXJ6Utv5dSY41a6fewXoX56_/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>電子學解答</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1Ynev0Do43D9qxbiScu-XqYwDwzaEjwUf/view?usp=sharing" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>電路學</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1Sch9jDroDQDdp3QAPpyYmDq_pdCOc1_Y/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>電路學解答</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/148PvZiFtGBZvXsj7-yEE1LOht6tpkxfu/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>組合語言</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/11sWeYKGPpLQ3x68OiwRKfUJ7vUpC7wNk/view?usp=drive_link" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>電磁學</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1-Pq5W3HfyLRV0KS8MvhM9pv8zq0gBSqF/view?usp=drivesdk" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>電磁學解答</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1uGLi0x9d7dWTILdUxNX43VCmax-mzgjk/view?usp=drivesdk" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>作業系統</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1p9rzJuyZn4UCuSC7UseF_EMQKh0N6x_A/view?usp=drivesdk" target="_blank">下載原文書</a>
+        </div>
+        <div class="book-card">
+          <span>控制系統</span>
+          <a class="download-btn" href="https://drive.google.com/file/d/1OwWjFtkKKLYpSL9P6pGsq0JCIF_8Q6nx/view?usp=drivesdk" target="_blank">下載原文書</a>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="bottom-banner">
+      <p>© 2025 國立臺北大學電機系</p>
+      <p>如有問題或欲提供考古題，請來信 <a href="mailto:ntpuee0@gmail.com">ntpuee0@gmail.com</a></p>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBczfrfsNM3ZlodMC9QZcl3PCgqHcVcgbY",
+      authDomain: "previousexam-6dab2.firebaseapp.com",
+      projectId: "previousexam-6dab2",
+      storageBucket: "previousexam-6dab2.firebasestorage.app",
+      messagingSenderId: "561178340991",
+      appId: "1:561178340991:web:3a613be354d5ab25ec594a",
+      measurementId: "G-Y1BHBCKRGC"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const loginBtn = document.getElementById('login-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const loginScreen = document.getElementById('login-screen');
+    const appContainer = document.getElementById('app-container');
+    const errorMsg = document.getElementById('error-msg');
+    const userInfo = document.getElementById('user-info');
+
+    // 登入功能
+    loginBtn.addEventListener('click', () => {
+      errorMsg.style.display = "none";
+      signInWithPopup(auth, provider).catch(err => {
+        errorMsg.textContent = "登入失敗，請稍後再試。";
+        errorMsg.style.display = "block";
+      });
+    });
+
+    // 登出功能
+    logoutBtn.addEventListener('click', () => {
+      signOut(auth).then(() => {
+        window.location.reload();
+      });
+    });
+
+    // 狀態監控
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // 正規表達式：檢查是否為 s + 9位數字 @gm.ntpu.edu.tw
+        const ntpuRegex = /^s\d{9}@gm\.ntpu\.edu\.tw$/;
+        
+        if (ntpuRegex.test(user.email)) {
+          // 驗證成功
+          loginScreen.style.display = 'none';
+          appContainer.style.display = 'block';
+          userInfo.textContent = `當前使用者: ${user.email}`;
+        } else {
+          // 驗證失敗：不是正確格式的北大信箱
+          errorMsg.innerHTML = "存取權限不足！<br>必須使用北大信箱 (sXXXXXXXXX@gm.ntpu.edu.tw) 登入。";
+          errorMsg.style.display = "block";
+          signOut(auth); 
+        }
+      } else {
+        // 未登入
+        loginScreen.style.display = 'flex';
+        appContainer.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
