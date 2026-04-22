@@ -108,3 +108,61 @@ li span {
   font-size: 1em;
   text-align: center;
 }
+
+#login-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: #f4f7f6;
+      font-family: sans-serif;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+    #login-btn {
+      background: #4285F4;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+    #login-btn:hover { background: #357ae8; }
+    #error-msg {
+      color: #e74c3c;
+      margin-top: 15px;
+      font-size: 14px;
+      display: none;
+      line-height: 1.5;
+    }
+    /* 登出橫幅樣式 */
+    .auth-bar {
+      background: #333;
+      color: white;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 13px;
+    }
+    #logout-btn {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 3px 10px;
+      margin-left: 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #logout-btn:hover { background: white; color: black; }
